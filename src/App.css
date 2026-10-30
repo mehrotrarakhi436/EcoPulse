@@ -1,0 +1,1784 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* =========================
+   GLOBAL BACKGROUND
+========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+  background: #07180f;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+  color: #f3f7f1;
+  background: transparent;
+}
+
+/* Fixed forest image behind every page */
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(4, 22, 13, 0.35),
+      rgba(4, 22, 13, 0.50)
+    ),
+    url("/forest.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+/* =========================
+   MAIN APP
+========================= */
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background: transparent;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Manrope', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+.navbar {
+  width: 100%;
+  min-height: 82px;
+  padding: 18px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  background: rgba(5, 24, 15, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #ffffff;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: #b4e77b;
+  color: #12351c;
+  font-weight: 800;
+}
+
+.brand-dot {
+  color: #b4e77b;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #b4e77b;
+}
+
+.nav-button {
+  padding: 12px 19px;
+  border-radius: 30px;
+  background: #b4e77b;
+  color: #102c18 !important;
+  font-weight: 700 !important;
+  transition: 0.2s ease;
+}
+
+.nav-button:hover {
+  background: #d0f5a5;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   HOME HERO
+========================= */
+
+.hero {
+  min-height: 650px;
+  padding: 100px 8% 65px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: transparent;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(3, 20, 12, 0.35),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  padding: 9px 15px;
+  border: 1px solid rgba(180, 231, 123, 0.35);
+  border-radius: 30px;
+  background: rgba(180, 231, 123, 0.1);
+  color: #c9f59b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b4e77b;
+  box-shadow: 0 0 12px #b4e77b;
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin-bottom: 25px;
+  color: #ffffff;
+  font-size: clamp(48px, 7vw, 82px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -4px;
+}
+
+.hero h1 span {
+  color: #b4e77b;
+}
+
+.hero-description {
+  max-width: 600px;
+  margin-bottom: 35px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #b4e77b;
+  color: #102c18;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.primary-button:hover {
+  background: #d0f5a5;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(180, 231, 123, 0.2);
+}
+
+.text-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.text-button:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: #b4e77b;
+}
+
+.hero-bottom {
+  position: absolute;
+  right: 8%;
+  bottom: 45px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* =========================
+   HOME INTRO
+========================= */
+
+.home-intro {
+  padding: 90px 8%;
+  background: rgba(5, 24, 15, 0.55);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.home-intro h2 {
+  max-width: 700px;
+  margin-bottom: 20px;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.2;
+}
+
+.home-intro p {
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* =========================
+   FEATURE CARDS
+========================= */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 45px;
+}
+
+.feature-card {
+  min-height: 220px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  background: rgba(7, 34, 20, 0.68);
+  backdrop-filter: blur(12px);
+  transition: 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(180, 231, 123, 0.6);
+  background: rgba(12, 49, 28, 0.82);
+}
+
+.feature-card h3 {
+  margin-bottom: 13px;
+  color: #d0f5a5;
+  font-size: 21px;
+}
+
+.feature-card p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================
+   INNER PAGES
+========================= */
+
+.inner-page {
+  min-height: 75vh;
+  padding: 90px 8%;
+  background: transparent;
+}
+
+.inner-page h1 {
+  max-width: 850px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+}
+
+.inner-page > p {
+  max-width: 750px;
+  margin-bottom: 35px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* =========================
+   DETAIL GRID
+========================= */
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.detail-card {
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  background: rgba(5, 28, 17, 0.76);
+  backdrop-filter: blur(12px);
+  transition: 0.25s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(180, 231, 123, 0.5);
+}
+
+.detail-card h2,
+.detail-card h3 {
+  margin-bottom: 14px;
+  color: #c9f59b;
+  font-size: 23px;
+}
+
+.detail-card p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 45px 8%;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(3, 19, 11, 0.86);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer strong {
+  color: #c9f59b;
+}
+.footer .button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #c9f59b;
+  color: #102719;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.footer .button:hover {
+  background: #b5e887;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 850px) {
+  .navbar {
+    padding: 17px 5%;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    gap: 17px;
+    flex-wrap: wrap;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero {
+    min-height: 580px;
+    padding: 80px 6%;
+  }
+
+  .hero-bottom {
+    right: 6%;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .nav-links {
+    width: 100%;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 600px;
+    padding: 75px 6%;
+  }
+
+  .hero h1 {
+    font-size: 47px;
+    letter-spacing: -2px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .hero-bottom {
+    display: none;
+  }
+
+  .home-intro,
+  .inner-page {
+    padding: 65px 6%;
+  }
+
+  .feature-grid,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card,
+  .detail-card {
+    padding: 24px;
+  }
+
+  .footer {
+    padding: 35px 6%;
+  }
+}
+
+/* =========================
+   NATURE SOUND CONTROL
+========================= */
+
+.nature-sound-control {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  background: rgba(5, 24, 15, 0.9);
+  color: white;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.nature-sound-control button {
+  padding: 9px 17px;
+  border: none;
+  border-radius: 25px;
+  background: #b4e77b;
+  color: #102c18;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.nature-sound-control button:hover {
+  background: #d0f5a5;
+  transform: translateY(-2px);
+}
+
+.nature-sound-control span {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: #c9f59b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.card-link:hover {
+  color: #ffffff;
+}
+
+/* =========================
+   CARBON FOOTPRINT CALCULATOR
+========================= */
+
+.calculator-page > h1 span {
+  color: #b4e77b;
+}
+
+.calculator-intro {
+  max-width: 720px;
+  margin-bottom: 38px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.calculator-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: stretch;
+}
+
+.calculator-form,
+.calculator-result {
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+  background: rgba(5, 28, 17, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.calculator-form h2,
+.calculator-result h2 {
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-size: 25px;
+}
+
+.calculator-subtitle {
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+}
+
+.calculator-field {
+  margin-bottom: 23px;
+}
+
+.calculator-field label {
+  display: block;
+  margin-bottom: 10px;
+  color: #e9f5e3;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input-with-unit {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.input-with-unit:focus-within {
+  border-color: #b4e77b;
+}
+
+.input-with-unit input {
+  width: 100%;
+  min-width: 0;
+  padding: 15px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font: inherit;
+}
+
+.input-with-unit input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.input-with-unit input::-webkit-inner-spin-button,
+.input-with-unit input::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+.input-with-unit span {
+  padding: 0 16px;
+  color: #c9f59b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.calculator-field small {
+  display: block;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+}
+
+.calculator-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.calculator-reset {
+  padding: 14px 23px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.07);
+  color: white;
+  font-weight: 600;
+}
+
+.calculator-reset:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.calculator-error {
+  margin-top: 15px;
+  color: #ffb0a8;
+  font-size: 13px;
+}
+
+.calculator-result {
+  display: flex;
+  align-items: center;
+  min-height: 430px;
+}
+
+.result-empty {
+  width: 100%;
+  text-align: center;
+}
+
+.result-symbol {
+  display: grid;
+  width: 85px;
+  height: 85px;
+  margin: 0 auto 25px;
+  place-items: center;
+  border: 1px solid rgba(180, 231, 123, 0.4);
+  border-radius: 50%;
+  background: rgba(180, 231, 123, 0.1);
+  color: #c9f59b;
+  font-family: 'Manrope', sans-serif;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.result-empty p {
+  max-width: 320px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+}
+
+.result-filled {
+  width: 100%;
+}
+
+.result-label {
+  color: #c9f59b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  line-height: 1.7;
+}
+
+.result-number {
+  margin: 18px 0 8px;
+  color: #ffffff;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(35px, 5vw, 55px);
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.result-number span {
+  color: #b4e77b;
+  font-size: 17px;
+  letter-spacing: 0;
+}
+
+.result-yearly {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13px;
+}
+
+.result-divider {
+  height: 1px;
+  margin: 28px 0;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.result-filled h3 {
+  margin-bottom: 22px;
+  color: #ffffff;
+  font-size: 19px;
+}
+
+.breakdown-row {
+  margin-bottom: 19px;
+}
+
+.breakdown-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 9px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+}
+
+.breakdown-label strong {
+  color: #ffffff;
+}
+
+.breakdown-track {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.breakdown-fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+.electricity-bar {
+  background: #b4e77b;
+}
+
+.travel-bar {
+  background: #77c9a5;
+}
+
+.waste-bar {
+  background: #e6bd75;
+}
+
+.calculator-note {
+  margin-top: 23px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.calculator-information {
+  margin-top: 75px;
+}
+
+.calculator-information > h2 {
+  margin-bottom: 25px;
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.calculator-information .detail-grid {
+  margin-top: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.calculator-information .detail-card h3 {
+  margin-bottom: 12px;
+  color: #c9f59b;
+}
+
+.calculator-disclaimer {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+@media (max-width: 850px) {
+  .calculator-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-information .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .calculator-form,
+  .calculator-result {
+    padding: 23px;
+  }
+
+  .calculator-buttons {
+    flex-direction: column;
+  }
+
+  .calculator-buttons button {
+    width: 100%;
+  }
+}
+.challenge-page > h1 span {
+  color: #b4e77b;
+}
+
+.challenge-card {
+  max-width: 850px;
+  padding: 32px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 20px;
+  background: rgba(5,28,17,0.85);
+  backdrop-filter: blur(14px);
+}
+
+.challenge-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+.challenge-top h2 {
+  color: white;
+  font-size: 25px;
+}
+
+.challenge-points {
+  color: #b4e77b;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.challenge-points span {
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+}
+
+.challenge-track {
+  height: 10px;
+  margin-bottom: 28px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.13);
+}
+
+.challenge-fill {
+  height: 100%;
+  border-radius: 20px;
+  background: #b4e77b;
+  transition: width 0.3s ease;
+}
+
+.challenge-tasks {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.challenge-task {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  color: white;
+  cursor: pointer;
+}
+
+.challenge-task input {
+  width: 18px;
+  height: 18px;
+  accent-color: #b4e77b;
+}
+
+.challenge-task span {
+  flex: 1;
+}
+
+.challenge-task strong {
+  color: #b4e77b;
+}
+
+.challenge-task:has(input:checked) {
+  background: rgba(180,231,123,0.12);
+  border-color: rgba(180,231,123,0.4);
+}
+
+.challenge-complete {
+  margin: 20px 0;
+  color: #b4e77b;
+  font-weight: 700;
+}
+
+@media(max-width:600px) {
+  .challenge-card {
+    padding: 20px;
+  }
+
+  .challenge-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Smooth page transitions */
+
+.inner-page,
+.hero {
+  animation: pageFadeIn 0.4s ease both;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-leaving {
+  opacity: 0 !important;
+  transition: opacity 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inner-page,
+  .hero {
+    animation: none;
+  }
+}
+
+.inner-page,
+.hero {
+  transition: opacity 0.25s ease;
+}
+
+body.page-leaving .inner-page,
+body.page-leaving .hero {
+  opacity: 0;
+}
+
+
+/* WASTE SORTING SEARCH AND FILTERS */
+
+.waste-sorting-page input,
+.waste-sorting-page select {
+  background: rgba(12, 31, 21, 0.9);
+  color: #f0f5eb;
+  border: 1px solid rgba(183, 215, 161, 0.4);
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  max-width: 100%;
+}
+
+.waste-sorting-page input {
+  width: min(100%, 480px);
+}
+
+.waste-sorting-page input::placeholder {
+  color: #bdcbbd;
+}
+
+.waste-sorting-page input:focus,
+.waste-sorting-page select:focus {
+  border-color: #b7d7a1;
+  box-shadow: 0 0 0 3px rgba(183, 215, 161, 0.12);
+}
+
+.waste-sorting-page button {
+  background: rgba(183, 215, 161, 0.1);
+  color: #edf3e9;
+  border: 1px solid rgba(183, 215, 161, 0.35);
+  border-radius: 30px;
+  padding: 10px 17px;
+  margin: 5px 6px 5px 0;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.waste-sorting-page button:hover {
+  background: rgba(183, 215, 161, 0.2);
+  border-color: #b7d7a1;
+}
+
+.waste-sorting-page button:focus-visible {
+  outline: 2px solid #b7d7a1;
+  outline-offset: 3px;
+}
+
+
+/* WASTE SORTING TEXT SPACING */
+
+.waste-sorting-page {
+  line-height: 1.6;
+}
+
+.waste-sorting-page p {
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.waste-sorting-page h2,
+.waste-sorting-page h3 {
+  line-height: 1.3;
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+.waste-sorting-page .sorting-result {
+  margin-top: 28px;
+  margin-bottom: 24px;
+}
+
+.waste-sorting-page .sorting-result p {
+  margin-bottom: 8px;
+}
+
+.waste-sorting-page .sorting-guidance {
+  margin-top: 22px;
+  line-height: 1.8;
+}
+
+
+/* TEMPERATURE TAKEDOWN GAME */
+
+.temperature-game {
+  padding-bottom: 100px;
+}
+
+.temperature-dashboard {
+  padding: 30px;
+  background: rgba(10, 31, 19, 0.88);
+  border: 1px solid rgba(183, 215, 161, 0.25);
+  border-radius: 16px;
+  margin-bottom: 55px;
+}
+
+.temperature-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.temperature-number {
+  font-family: Manrope, sans-serif;
+  font-size: clamp(45px, 7vw, 72px);
+  font-weight: 800;
+  color: #d5e8c8;
+  letter-spacing: -3px;
+}
+
+.temperature-caption {
+  color: #aebead;
+  font-size: 12px;
+}
+
+.temperature-score {
+  min-width: 120px;
+  padding: 18px;
+  text-align: center;
+  border: 1px solid rgba(183, 215, 161, 0.3);
+  border-radius: 10px;
+}
+
+.temperature-score span,
+.temperature-score small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #b7d7a1;
+}
+
+.temperature-score strong {
+  display: block;
+  font-family: Manrope, sans-serif;
+  font-size: 36px;
+  color: #b7d7a1;
+}
+
+.temperature-bar {
+  height: 13px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 25px;
+}
+
+.temperature-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #b7d7a1, #e4b36f);
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+.temperature-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #aebead;
+  font-size: 11px;
+  margin-top: 8px;
+}
+
+.game-progress {
+  margin-top: 30px;
+}
+
+.game-progress-heading {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.game-progress-heading span {
+  color: #b7d7a1;
+}
+
+.progress-track {
+  height: 7px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #b7d7a1;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+.temperature-choices h2 {
+  font-family: Manrope, sans-serif;
+  font-size: 27px;
+}
+
+.choice-intro {
+  color: #bdcbbd;
+  margin-bottom: 25px;
+}
+
+.temperature-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.temperature-choice {
+  min-height: 175px;
+  padding: 23px;
+  text-align: left;
+  background: rgba(12, 31, 21, 0.85);
+  border: 1px solid rgba(215, 235, 210, 0.16);
+  border-radius: 12px;
+  color: #edf3e9;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s,
+              background 0.2s;
+}
+
+.temperature-choice:hover:not(:disabled) {
+  transform: translateY(-4px);
+  border-color: #b7d7a1;
+  background: rgba(183, 215, 161, 0.09);
+}
+
+.temperature-choice h3 {
+  font-family: Manrope, sans-serif;
+  font-size: 18px;
+  margin: 18px 0 8px;
+}
+
+.temperature-choice p {
+  color: #bdcbbd;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.choice-points,
+.choice-selected {
+  color: #b7d7a1;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.temperature-choice:disabled {
+  cursor: default;
+  opacity: 0.65;
+}
+
+.temperature-choice.selected-choice {
+  border-color: #b7d7a1;
+  background: rgba(183, 215, 161, 0.12);
+}
+
+.temperature-result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns everything, including the button, cleanly to the left */
+  max-width: 600px;        /* Prevents the text from stretching too wide across the screen */
+  margin-bottom: 80px;     /* Leaves breathing room before the disclaimer text below it */
+}
+
+/* Adds explicit spacing below the summary text so the button isn't squished */
+.temperature-result p {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  margin-bottom: 32px;     /* Creates a perfect gap right above the button */
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* The clean, modern button style matching your game accent tags */
+.temperature-result .button.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #bef264; /* Vibrant light lime green accent */
+  color: #022c22;            /* Deep forest green text for high readability */
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 14px 32px;        /* Generous structural padding */
+  border-radius: 9999px;     /* Perfect capsule pill shape */
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Interactive feedback when hovering over the action button */
+.temperature-result .button.button-primary:hover {
+  background-color: #d9f99d; /* Slightly lighter shade on hover */
+  transform: translateY(-2px); /* Subtle premium lift effect */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.temperature-result .button.button-primary:active {
+  transform: translateY(0);  /* Clean button depression feel on press */
+}
+
+.temperature-result h2 {
+  font-family: Manrope, sans-serif;
+  font-size: 32px;
+}
+
+.temperature-result p {
+  color: #c6d2c4;
+  line-height: 1.7;
+}
+
+.temperature-disclaimer {
+  color: #9eae9d;
+  font-size: 11px;
+  line-height: 1.7;
+  margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+  .temperature-choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .temperature-dashboard {
+    padding: 20px;
+  }
+
+  .temperature-top {
+    align-items: flex-start;
+  }
+
+  .temperature-score {
+    min-width: 90px;
+    padding: 12px;
+  }
+}
+
+/* 1. Main Page Wrapper - Adds massive breathing room at the top and bottom */
+.page-wrap.temperature-game {
+  padding-top: 100px;
+  padding-bottom: 120px;
+  max-width: 1200px; /* Ensures content doesn't stretch too wide */
+  margin: 0 auto;
+}
+
+/* 2. Header Section - Drastically increases space below the intro text */
+.page-header {
+  margin-bottom: 80px; 
+}
+
+.page-header h1 {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.page-header .lead {
+  font-size: 1.15rem;
+  line-height: 1.8; /* Replicates the readable text spacing of picture 2 */
+  max-width: 650px; /* Keeps text lines comfortably short */
+}
+
+/* 3. Main Dashboard Card - Gives elements inside and outside the card room to breathe */
+.temperature-dashboard {
+  padding: 48px; /* Increases internal card padding so text isn't tightly boxed */
+  margin-bottom: 90px; /* Pushes the "Make your next decision" section far down */
+  border-radius: 16px;
+}
+
+/* 4. Inside the Dashboard Card - Spacers for the temperature values and bar */
+.temperature-top {
+  margin-bottom: 48px; /* Pushes the horizontal bar further down from the numbers */
+}
+
+.temperature-bar {
+  margin-bottom: 16px; /* Space between the bar and the 1.0°C / 3.0°C labels */
+}
+
+.temperature-labels {
+  margin-bottom: 40px; /* Space below the labels before the "Your progress" track starts */
+}
+
+/* 5. Choices Section - Adds breathing room above the lower grids */
+.temperature-choices h2 {
+  margin-bottom: 16px;
+}
+
+.choice-intro {
+  margin-bottom: 40px; /* Pushes the interactive grid buttons further down */
+}
+
+
+/* CLIMATE IMPACT PAGE */
+
+.climate-impact-page {
+  padding-bottom: 80px;
+}
+
+.climate-impact-hero {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 90px 20px 75px;
+}
+
+.climate-eyebrow {
+  color: #c9f59b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  margin-bottom: 16px;
+}
+
+.climate-impact-hero h1 {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(42px, 7vw, 68px);
+  color: #eaf5e3;
+  margin-bottom: 20px;
+}
+
+.climate-impact-hero > p:last-child {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 16px;
+  line-height: 1.9;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.climate-events {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 6%;
+}
+
+.climate-section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.climate-section-heading h2,
+.climate-impact-message h2 {
+  color: #eaf5e3;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(27px, 4vw, 38px);
+  margin-bottom: 12px;
+}
+
+.climate-section-heading > p:last-child {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+}
+
+.climate-event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.climate-event-card {
+  background: rgba(5, 28, 17, 0.88);
+  border: 1px solid rgba(201, 245, 155, 0.2);
+  border-radius: 18px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.climate-event-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(201, 245, 155, 0.65);
+}
+
+.climate-event-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.climate-category {
+  color: #c9f59b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.climate-year {
+  color: #dcebd3;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.climate-location {
+  color: #c9f59b;
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.climate-event-card h3 {
+  color: #f0f6eb;
+  font-size: 22px;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+
+.climate-detail {
+  margin-bottom: 20px;
+}
+
+.climate-detail h4 {
+  color: #c9f59b;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.climate-detail p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.climate-connection {
+  padding: 16px;
+  background: rgba(201, 245, 155, 0.07);
+  border-left: 3px solid #c9f59b;
+  border-radius: 5px;
+}
+
+.climate-source {
+  color: #c9f59b;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.climate-source:hover {
+  text-decoration: underline;
+}
+
+.climate-impact-message {
+  max-width: 850px;
+  margin: 70px auto 0;
+  padding: 45px 30px;
+  text-align: center;
+  background: rgba(5, 28, 17, 0.85);
+  border: 1px solid rgba(201, 245, 155, 0.2);
+  border-radius: 18px;
+}
+
+.climate-impact-message > p:last-child {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.9;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .climate-event-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .climate-event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .climate-impact-hero {
+    padding-top: 60px;
+  }
+
+  .climate-impact-message {
+    margin: 45px 6% 0;
+    padding: 30px 20px;
+  }
+}
+
+/* HOME HERO IMAGE */
+
+
+/* MISSION PAGE IMAGE */
+
+/* MISSION PAGE BLENDED IMAGE */
+
+/* MISSION PAGE IMAGE */
+.mission-page .mission-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center;
+  margin: 30px 0;
+  border-radius: 14px;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+
+/* CLIMATE IMPACT CARD IMAGES */
+.climate-event-image {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 18px;
+  border-radius: 12px;
+
+  /* Blend the image into the card */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 55%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 55%,
+    transparent 100%
+  );
+}
+
+
+/* TAKE ACTION CARD IMAGES */
+.action-image {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 18px;
+  border-radius: 12px;
+
+  /* Blend the image into the dark green card */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 55%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 55%,
+    transparent 100%
+  );
+}
+
+.action-card {
+  overflow: hidden;
+}
+
+.action-card h2 {
+  margin-top: 0;
+}
+
+
+/* TEMPERATURE TAKEDOWN CARD IMAGES */
+.temperature-choice-image {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 16px;
+  border-radius: 12px;
+
+  /* Fade the image into the card */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 55%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 55%,
+    transparent 100%
+  );
+}
+
+.temperature-choice {
+  overflow: hidden;
+  text-align: left;
+}
+
+/* Carbon Calculator period dropdown */
+.calculator-field select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(120, 190, 140, 0.4);
+  border-radius: 10px;
+  background-color: #123d2b;
+  color: #e8f5ec;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a8d5b5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 42px;
+}
+
+.calculator-field select:focus {
+  border-color: #78bd8c;
+  box-shadow: 0 0 0 3px rgba(120, 189, 140, 0.15);
+}
+
+.calculator-field select option {
+  background-color: #123d2b;
+  color: #e8f5ec;
+}
